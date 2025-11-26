@@ -1065,9 +1065,8 @@
             "III.2": "young",
             "III.3": "decision_magistrate",
             "III.4": "edo",
-            "IV.1": "widow",
-            "IV.2": "widow",
-            "IV.3": "elderly"
+            "IV.1": "elderly",
+            "IV.2": "elderly"
         };
 
         // Game State - Hidden from player
@@ -1356,52 +1355,6 @@ How will you conduct yourself in this new life?`,
                 id: "IV.1",
                 phase: "IV",
                 chapter: "12",
-                title: "Hirosuke's Death",
-                kanji: "死",
-                imageLabel: "A time of mourning",
-                narrative: `Death comes for Hirosuke without warning—a sudden illness that takes him within days. You kneel beside his futon as the light leaves his eyes, this man who was your partner through so much hardship and so much hope.
-
-Now you must secure your future as a widow. The Magistrate's Office will provide some support, but widows are vulnerable. You could work to establish yourself firmly in this position, ensuring your security. Or you could move quickly, taking what you can before others decide your fate for you.
-
-The incense smoke rises, carrying your prayers for the dead.`,
-                choices: [
-                    {
-                        text: "Secure your widowhood through proper channels",
-                        effects: { autonomy: -1, resources: 1, reputation: 0 }
-                    },
-                    {
-                        text: "Move quickly—take what you can and establish independence",
-                        effects: { autonomy: 2, resources: -2, reputation: 0 }
-                    }
-                ]
-            },
-            {
-                id: "IV.2",
-                phase: "IV",
-                chapter: "13",
-                title: "The Family Inheritance",
-                kanji: "財",
-                imageLabel: "Documents and family records",
-                narrative: `Your natal family in Echigo has not forgotten you. Now that you are a widow, they see an opportunity—to reclaim any property you might have acquired, to reassert control over a daughter who escaped their grasp.
-
-Letters arrive demanding you forfeit all claims to family inheritance. They argue that your years of independence voided your rights as a daughter. But you know the law is not entirely on their side. You could fight for what is rightfully yours, though it would mean prolonged conflict.
-
-Or you could return quietly, accepting their terms in exchange for peace.`,
-                choices: [
-                    {
-                        text: "Fight for the estate—you have earned your share",
-                        effects: { autonomy: 0, resources: 3, reputation: -2 }
-                    },
-                    {
-                        text: "Return quietly—peace is worth more than money",
-                        effects: { autonomy: 0, resources: -1, reputation: 2 }
-                    }
-                ]
-            },
-            {
-                id: "IV.3",
-                phase: "IV",
-                chapter: "14",
                 title: "The Last Years",
                 kanji: "遺",
                 imageLabel: "Tsuneno in her final years",
@@ -1420,6 +1373,22 @@ Or you could let the family narrative stand, your rebellious past softened into 
                         effects: { autonomy: 0, resources: 0, reputation: 1 }
                     }
                 ]
+            },
+            {
+                id: "IV.2",
+                phase: "IV",
+                chapter: "13",
+                title: "The Final Rest",
+                kanji: "終",
+                imageLabel: "A quiet room in Edo",
+                narrative: `A quiet room in Edo, sunlight streaming through a paper screen. Hirosuke sits nearby, looking anxious. The fever has come on quickly, a final, swift current in a long river of struggle. You are weak, drifting in and out of consciousness. The noise of Edo seems muffled, distant. You recall the journeys, the difficult marriages, the loss of children, and the endless fight for independence. In the end, you made it back to the city that represented freedom, beside the man you chose twice. Tears in his eyes, Hirosuke said: "Rest now, Tsuneno. You are safe here. We are citizens of Edo."`,
+                choices: [
+                    {
+                        text: "Continue",
+                        effects: { autonomy: 0, resources: 0, reputation: 0 },
+                        isContinue: true
+                    }
+                ]
             }
         ];
 
@@ -1427,31 +1396,31 @@ Or you could let the family narrative stand, your rebellious past softened into 
         const endings = {
             A: {
                 type: "ENDING A",
-                title: "The Autonomous Survivor",
+                title: "The Undefeated Spirit: The Authentic Voice",
                 kanji: "自",
                 portrait: "elderly",
-                description: "You lived free, on your own terms. In a world that demanded women submit, you carved out a space for yourself—modest perhaps, but entirely your own. Your letters survive, preserving the authentic voice of a woman who refused to be silenced. History remembers you not for wealth or status, but for the courage to choose your own path."
+                description: "Hirosuke, heartbroken but dutiful, returns your remains and belongings to your natal temple in Echigo. However, he also delivers a cache of your private correspondence and diaries, as was your independent wish. Your family finds their carefully maintained version of your life challenged by your own, defiant words. The official record praises the dutiful wife, but your autobiographical writings survive as a subversive text. Scholars centuries later study you to understand the true spirit of defiance in the Edo period. Hirosuke quietly funds the preservation of your papers, honoring the true woman he knew."
             },
             B: {
                 type: "ENDING B",
-                title: "The Powerful Matriarch",
+                title: "The Golden Cage: The Honored Bureaucrat",
                 kanji: "富",
                 portrait: "edo",
-                description: "You achieved what few women of your era could claim—material success and financial security. Through clever navigation of society's rules, you accumulated resources that gave you power and influence. Your freedom was constrained by the responsibilities that came with wealth, but you ensured that you and those you cared for never went hungry again."
+                description: "Hirosuke, a surviving official from the Magistrate's Office, orchestrates a prestigious, proper burial in Edo, leveraging your combined wealth and status. The ceremony is attended by officials, and you are enshrined as a model of the disciplined, successful commoner class that supported the Shogunate. Your memory is preserved through monuments and official documents that extol your contribution to Hirosuke's career and your domestic excellence. You are remembered as a perfect Edo wife who was instrumental in the family's economic elevation. Your personal struggles and past defiance are completely excised from this official, sanitized record."
             },
             C: {
                 type: "ENDING C",
-                title: "The Reintegrated Family Elder",
+                title: "The End of the River: The Prodigal Daughter",
                 kanji: "徳",
                 portrait: "elderly",
-                description: "You returned to the temple in Echigo as an honored elder, your rebellious past transformed into a story of youthful folly and eventual wisdom. The family welcomed you back, and you found peace in the familiar rhythms of temple life. Your adventures became family legend, carefully edited—a tale of a prodigal daughter who found her way home."
+                description: "Hirosuke respects the importance of the temple lineage and allows your family to transport your remains back to Echigo for burial at Rinsen-ji. They pay a large sum to settle any outstanding debts and ensure your respectable return. Your memorial tablet is inscribed with a name that restores your full filial duty. Your life story becomes a cautionary but positive tale within the temple community: one of youthful wandering followed by a dutiful return to your roots. Hirosuke and your family agree to destroy all potentially scandalous papers. You are remembered as the daughter who finally found peace by submitting to the family's honor and the temple's enduring history."
             },
             D: {
                 type: "ENDING D",
-                title: "The Forgotten One",
+                title: "The Muffled Whisper: Cut Off and Invisible",
                 kanji: "無",
                 portrait: "widow",
-                description: "The city swallowed you whole. Cut off from family, without resources or reputation, you became one of the countless anonymous souls who lived and died in Edo's shadows. No letters preserve your story. No family remembers your name. You were free, perhaps, but freedom without support proved to be just another kind of prison."
+                description: "Due to your turbulent past and low surviving scores, Hirosuke cannot afford a prestigious burial in Edo, nor can he afford the ritual fees to send your remains back to Echigo. You are interred anonymously in a communal city cemetery. Your life, full of courage and struggle, leaves no distinguishable trace in the historical record. Your personal story is lost, known only fleetingly to Hirosuke, and completely invisible to both the powerful bureaucracy and the distant family temple."
             }
         };
 
@@ -1509,12 +1478,27 @@ Or you could let the family narrative stand, your rebellious past softened into 
 
             // Update choices
             const choicesWrapper = document.getElementById('choicesWrapper');
+            const choicesLabel = document.querySelector('.choices-label');
             choicesWrapper.innerHTML = '';
+            
+            // Check if this is a continue-only scene
+            const isContinueScene = scene.choices.length === 1 && scene.choices[0].isContinue;
+            
+            if (isContinueScene) {
+                choicesLabel.style.display = 'none';
+            } else {
+                choicesLabel.style.display = 'block';
+            }
             
             scene.choices.forEach((choice, i) => {
                 const button = document.createElement('button');
                 button.className = 'choice-button';
-                button.innerHTML = `<span class="choice-number">${i + 1}</span>${choice.text}`;
+                if (choice.isContinue) {
+                    button.innerHTML = choice.text;
+                    button.style.textAlign = 'center';
+                } else {
+                    button.innerHTML = `<span class="choice-number">${i + 1}</span>${choice.text}`;
+                }
                 button.onclick = () => makeChoice(index, i);
                 choicesWrapper.appendChild(button);
             });
